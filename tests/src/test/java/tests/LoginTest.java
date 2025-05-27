@@ -49,9 +49,18 @@ public class LoginTest {
         driver.get("https://www.tumblr.com/");
     }
 
+    // Test checks if the login page is displayed correctly
+    @Test
+    public void testLoginPage(){
+        LoginPage loginPage = new LoginPage(this.driver);
+        assertTrue(loginPage.isLoginPageDisplayed(this.driver));
+        assertFalse(loginPage.isUserLoggedIn(this.driver));
+        assertTrue(loginPage.isLoginButtonEnabled(this.driver));
+    }
 
-    //@Test
-    public void testLogin(){
+    // Test for logging in with a valid user
+    @Test
+    public void testLoginWithValidUser(){
 
         LoginPage loginPage = new LoginPage(this.driver);
         HomePage homePage = loginPage.loginValidUser();
