@@ -24,4 +24,9 @@ public class IndexPage extends BasePage{
         }
     }  
 
+    public boolean isIndexPageDisplayed(WebDriver driver) {
+        return driver.getTitle().equals("Browse communities on Tumblr");
+    }
+
+
 }

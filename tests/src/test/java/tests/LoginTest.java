@@ -53,7 +53,6 @@ public class LoginTest {
     @Test
     public void testLoginPage(){
         LoginPage loginPage = new LoginPage(this.driver);
-        assertTrue(loginPage.isLoginPageDisplayed(this.driver));
         assertFalse(loginPage.isUserLoggedIn(this.driver));
         assertTrue(loginPage.isLoginButtonEnabled(this.driver));
     }

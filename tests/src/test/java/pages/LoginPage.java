@@ -117,16 +117,6 @@ public class LoginPage extends BasePage{
 
 
     /**
-     * Checks if the login page is displayed by verifying the page title.
-     *
-     * @return the current LoginPage instance
-     */
-    public boolean isLoginPageDisplayed(WebDriver driver) {
-        return driver.getTitle().equals("Browse communities on Tumblr");
-    }
-
-    
-    /**
      * Checks if the login button is enabled on the login page.
      *
      * @param driver the WebDriver instance
