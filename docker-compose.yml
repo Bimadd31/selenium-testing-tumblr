@@ -3,12 +3,13 @@ version: "3"
 services:
   ubuntu:
     build: .
+    user: root
     stdin_open: true
     tty: true
     volumes:
       - ./tests:/home/selenium/tests
     links:
-      - selenium
+      - selenium 
       - novnc
 
   novnc:
@@ -22,7 +23,10 @@ services:
       - selenium
 
   selenium:
-    image: selenium/standalone-chrome-debug:3.11.0-californium
+    image: selenium/standalone-chrome:latest
+    shm_size: 1g   # It was 64MB by default, which was causing the issue. Set memory to 100MB or more 
+    mem_limit: 1g  # Set memory to 2 GB
+    cpus: 2        # Set CPU usage to 2 cores
     environment:
       - VNC_NO_PASSWORD=1
       - SCREEN_WIDTH=1800
